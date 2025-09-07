@@ -1,13 +1,6 @@
 # AIProjectScanner
 A simple tool (PowerShell and Python versions) that scans a directory (and all its subdirectories) and exports the full structure into a single structured JSON file. The goal is to provide AI-friendly project representations, including metadata about large or binary files, without dumping huge amounts of raw data.
 
-# Export-Tree-ToJson
-
-A simple tool (PowerShell and Python versions) that scans a directory (and all its subdirectories) and exports the full structure into a single structured **JSON file**.
-The goal is to provide AI-friendly project representations, including metadata about large or binary files, without dumping huge amounts of raw data.
-
----
-
 ## Features
 
 * Recursively scans a chosen root directory and all subdirectories.
@@ -18,8 +11,6 @@ The goal is to provide AI-friendly project representations, including metadata a
 * Large files (> 3 MB) and binary files → only metadata (`path`, `ext`, `size_bytes`, `skipped_reason`).
 * Adds a **notes** section at the top of the JSON to explain how to interpret the structure.
 * Provides an inline **schema** definition for clarity.
-
----
 
 ## Usage
 
@@ -38,8 +29,6 @@ Requires Python 3:
 ```bash
 python export_tree_to_json.py "C:\Users\Mediapc\Projects\MyApp" "C:\Users\Mediapc\Projects\MyApp\project.json" --max-mb 3
 ```
-
----
 
 ## Example Output
 
@@ -95,8 +84,6 @@ python export_tree_to_json.py "C:\Users\Mediapc\Projects\MyApp" "C:\Users\Mediap
 }
 ```
 
----
-
 ## Why JSON Instead of Text?
 
 * Easier for AI models to parse and process systematically.
@@ -104,16 +91,12 @@ python export_tree_to_json.py "C:\Users\Mediapc\Projects\MyApp" "C:\Users\Mediap
 * Large files and binaries are described without bloating the output.
 * Preserves context (e.g., AI can “see” that `models/llama-7b.gguf` exists, its size, and type, even though content isn’t dumped).
 
----
-
 ## Typical Use Cases
 
 * **AI-assisted code review:** feed the JSON to a language model for structured project analysis.
 * **Documentation & archiving:** produce an overview of all files and folders.
 * **Project onboarding:** new developers can see the entire structure and metadata at a glance.
 * **Model inventorying:** identify large/binary files like `.gguf`, `.onnx`, `.pt` and their sizes without loading them.
-
----
 
 ## Output Structure
 
@@ -124,8 +107,6 @@ python export_tree_to_json.py "C:\Users\Mediapc\Projects\MyApp" "C:\Users\Mediap
 
   * Small text file: includes `content`.
   * Large/binary file: includes `skipped_reason` but no content.
-
----
 
 ## License
 
