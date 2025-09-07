@@ -48,6 +48,7 @@ python export_tree_to_json.py "C:\Projects\MyApp" "C:\Projects\MyApp\tree.json" 
   --exclude-dirs node_modules .git .venv venv __pycache__ dist build .vscode .idea
 ```
 
+
 ## Options
 
 | Option                      | Default         | Description                                                                          |
@@ -56,7 +57,6 @@ python export_tree_to_json.py "C:\Projects\MyApp" "C:\Projects\MyApp\tree.json" 
 | `--hash-head-bytes`         | `0`             | If > 0, only hash the first N bytes instead of the full file (faster).               |
 | `--exclude-dirs`            | See defaults    | Additional directories to exclude (on top of `.git`, `node_modules`, `.venv`, etc.). |
 
----
 
 ## Example Output (simplified)
 
@@ -140,7 +140,6 @@ python export_tree_to_json.py "C:\Projects\MyApp" "C:\Projects\MyApp\tree.json" 
 * **Documentation & archiving**: Snapshot of project hierarchy with selective content.
 * **Model inventorying**: Large or binary assets (.gguf, .onnx, .pt) are captured with SHA-256 for reproducibility.
 
-
 ## Performance Tips
 
 * **Use `--exclude-dirs`** to skip heavy folders (`node_modules`, `.git`, build artifacts, caches). This drastically reduces runtime and JSON size.
@@ -158,7 +157,26 @@ python export_tree_to_json.py "C:\Projects\MyApp" "C:\Projects\MyApp\tree.json" 
 * **Run on SSD/NVMe**: hashing large binaries can otherwise bottleneck on disk speed.
 * **Parallelize** if scanning extremely large repos: you can split scans per subdirectory and merge JSON later.
 
----
+## Contributing
+
+Contributions are welcome! Here’s how you can help:
+
+1. **Fork the repository** and create a feature branch (`git checkout -b feature/my-improvement`).
+2. **Follow code style**: keep functions small, add docstrings, and prefer explicit variable names.
+3. **Test your changes** on both Windows and Linux/macOS if possible.
+4. **Open a Pull Request** with a clear description of:
+
+   * The problem you’re solving
+   * The solution you implemented
+   * Any limitations or trade-offs
+5. **Be respectful** in code reviews. This project values clarity, maintainability, and reproducibility.
+
+For bug reports, please open an **Issue** and include:
+
+* OS and Python version
+* Command you ran
+* Expected vs actual result
+* Example snippet of problematic JSON (if possible)
 
 ## License
 
